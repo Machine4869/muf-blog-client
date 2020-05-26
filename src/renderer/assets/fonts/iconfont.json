@@ -1,0 +1,23 @@
+{
+  "id": "1843945",
+  "name": "mul",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8532629",
+      "name": "猫",
+      "font_class": "logo-cat",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "13087883",
+      "name": "square",
+      "font_class": "plus",
+      "unicode": "e7d1",
+      "unicode_decimal": 59345
+    }
+  ]
+}

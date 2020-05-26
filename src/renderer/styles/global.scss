@@ -1,0 +1,50 @@
+/*包含以下四种的链接*/
+a {
+    text-decoration: none;
+}
+/*正常的未被访问过的链接*/
+a:link {
+    text-decoration: none;
+}
+/*已经访问过的链接*/
+a:visited {
+    text-decoration: none;
+}
+/*鼠标划过(停留)的链接*/
+a:hover {
+    text-decoration: none;
+}
+/* 正在点击的链接*/
+a:active {
+    text-decoration: none;
+}
+.router-link-active {
+    text-decoration: none;
+}
+
+// 全局字体
+body {
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    background-color: #363b40;
+    color: #dedede;
+    // 禁止页面滚动，使用el-scroll
+    overflow: hidden;
+}
+// 主区域全屏显示
+html,body,#app,.el-container{
+    height: 100%;
+}
+
+// 全局滚动条样式修改
+// *::-webkit-scrollbar {width:7px; height:10px; background-color:transparent;} /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+// *::-webkit-scrollbar-track:hover { background-color:#33383d;} /*定义滚动条轨道 内阴影+圆角*/
+// *::-webkit-scrollbar-track { background-color:#363b40;}
+// *::-webkit-scrollbar-thumb {background-color:#6b6e72; border-radius:0px;} /*定义滑块 内阴影+圆角*/
+// .scrollbarHide::-webkit-scrollbar{display: none}
+// .scrollbarShow::-webkit-scrollbar{display: block}
+
+
+// 隐藏浏览器自带的滚动条, 使用el-scoroll
+::-webkit-scrollbar { 
+    display: none; 
+}
