@@ -43,24 +43,24 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/cat_mac.icns"
+      "icon": "dist/icons/cat_mac.icns"
     },
     "win": {
-      "icon": "build/icons/cat_win.ico",
+      "icon": "dist/icons/cat_win.ico",
       "target": [
         "nsis"
       ]
     },
     "linux": {
-      "icon": "build/icons"
+      "icon": "dist/icons"
     },
     "nsis": {
       "oneClick": false,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./build/icons/cat_win.ico",
-      "uninstallerIcon": "./build/icons/cat_win.ico",
-      "installerHeaderIcon": "./build/icons/cat_win.ico",
+      "installerIcon": "./dist/icons/cat_win.ico",
+      "uninstallerIcon": "./dist/icons/cat_win.ico",
+      "installerHeaderIcon": "./dist/icons/cat_win.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Muf"
