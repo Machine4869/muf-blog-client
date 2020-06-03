@@ -15,6 +15,10 @@
                 <el-radio v-model="addArticleForm.type" label="published">发布</el-radio>
                 <el-radio v-model="addArticleForm.type" label="draft">草稿</el-radio>
             </el-form-item>
+            <el-form-item label="图片支持" label-width="70px">
+                <el-switch v-model="addArticleForm.picFolder">
+                </el-switch>
+            </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
             <el-button @click="setDiaLogVisible(false)">取 消</el-button>
@@ -37,8 +41,9 @@ import MulStore from '../js/mul-store'
     methods: {
         submitAddArticleForm(){
             // 创建文章
-            var now = new Date()            
-            var fileName = this.$common.dateFormat("YYYYmmddHHMMSS",now)+".md"
+            var now = new Date()   
+            var timeStamp = this.$common.dateFormat("YYYYmmddHHMMSS",now)         
+            var fileName = timeStamp +".md"
             var timeTag = this.$common.dateFormat("YYYY-mm-dd HH:MM:SS", now)
 
             var typeDir=''
@@ -52,6 +57,23 @@ import MulStore from '../js/mul-store'
 
             var path=MulStore.get(MulStore.key.hexoPath)+'/source'+typeDir
             var title = this.addArticleForm.title
+
+            var picText=''
+            if(this.addArticleForm.picFolder){
+                var dir = path+timeStamp
+                fs.mkdir(dir,(err)=>{
+                    if (err){
+                        return alert('创建目录失败：'+err)
+                    }
+                    // console.log("目录创建成功。");
+                    this.$message({
+                        type: 'success',
+                        message: '已创建'+dir+'目录'
+                    });
+                }) 
+                picText='typora-copy-images-to: ' + timeStamp + '\n'
+            }
+
             var text = 
                 "---\n" + 
                 "title: "+title+"\n" + 
@@ -60,7 +82,9 @@ import MulStore from '../js/mul-store'
                 "- XXX\n" + 
                 "- XXX\n" + 
                 "categories:\n" + 
+                picText +
                 "---\n"
+                
             
             if (!fs.existsSync(path)) {
                 alert('不存在路径：'+path+", 请核查")
@@ -100,7 +124,8 @@ import MulStore from '../js/mul-store'
         return {
           addArticleForm: {
               title: '',
-              type: 'published'
+              type: 'published',
+              picFolder: false
           },
         }
     },

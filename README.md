@@ -59,6 +59,7 @@ npm run build
 
 ## 开发进度
 
+- [] 拉取功能
 - [ ] 主题抽取
 - [x] 暗黑模式
 - [ ] 主题（light/dark）可选择
@@ -73,3 +74,12 @@ npm run build
 - [Vue.js](http://localhost:9080/#)
 - [element-ui](http://localhost:9080/#)
 
+# BUG
+自定义窗口模式无法兼容MAC
+
+
+# 版本更新
+
+## 0.0.2
+
+1. 创建图片文件夹

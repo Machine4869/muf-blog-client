@@ -285,6 +285,9 @@ export default {
             var hexoPath = MulStore.get(MulStore.key.hexoPath)
             var publishDir = hexoPath+'/source/_posts/'+row.id+'.md'
             var draftDir = hexoPath+'/source/'+this.draftDirName+'/'+row.id+'.md'
+
+            var publishPicDir = hexoPath+'/source/_posts/'+row.id
+            var draftPicDir = hexoPath+'/source/'+this.draftDirName+'/'+row.id
             
             // 是已发布的文章
             if(status=='draft'){
@@ -302,6 +305,20 @@ export default {
                         })
                     });
                 });
+
+                // 移动目录
+                fs.rename(publishPicDir, draftPicDir,  (err)=> {
+                    if (err) throw err;
+                    fs.stat(draftPicDir, (err, stats) => {
+                        if (err) throw err;
+                        // console.log('stats: ' + JSON.stringify(stats));
+                        // this.$message({
+                        //     message: '已设置为草稿',
+                        //     type: 'info'
+                        // })
+                    });
+                });
+
             }else {
                 // 是草稿
 
@@ -316,6 +333,19 @@ export default {
                             message: '已发布',
                             type: 'success'
                         })
+                    });
+                });
+
+                // 移动目录
+                fs.rename(draftPicDir, publishPicDir,  (err)=>{
+                    if (err) throw err;
+                    fs.stat(publishPicDir, (err, stats)=> {
+                        if (err) throw err;
+                        // console.log('stats: ' + JSON.stringify(stats));
+                        // this.$message({
+                        //     message: '已发布',
+                        //     type: 'success'
+                        // })
                     });
                 });
             }
