@@ -67,7 +67,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "electron-store": "^5.1.1",
     "element-ui": "^2.13.2",
     "mavon-editor": "^2.9.0",
